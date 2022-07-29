@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class FeedbackStat extends Component {
   render() {
     const { good, neutral, bad, total, positivePercent } = this.props;
-    return (
+    return total === 0 ? (
+      <p>There is no feedback yet</p>
+    ) : (
       <ul>
         <li>
           <p>Good: {good}</p>
