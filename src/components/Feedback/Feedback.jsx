@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import FeedbackBtns from './FeedbackBtns';
-import FeedbackStat from './FeedbackStat';
+import Buttons from '../Buttons/Buttons';
+import Stats from '../Stats/Stats';
 
 class Feedback extends Component {
   state = {
@@ -35,9 +35,9 @@ class Feedback extends Component {
     return (
       <Container>
         <h2>Please leave feedback</h2>
-        <FeedbackBtns onClick={this.onClickAddToStat} />
+        <Buttons onClick={this.onClickAddToStat} />
         <h2>Statistics</h2>
-        <FeedbackStat
+        <Stats
           good={this.state.good}
           neutral={this.state.neutral}
           bad={this.state.bad}
