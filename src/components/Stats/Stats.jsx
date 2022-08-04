@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Stats extends Component {
   render() {
@@ -17,7 +18,7 @@ class Stats extends Component {
           <p>Bad: {bad}</p>
         </li>
         <li>
-          <p>Total: {total}</p>
+          <p style={{ fontWeight: '700' }}>Total: {total}</p>
         </li>
         <li>
           <p>Positive feedback: {positivePercent}%</p>
@@ -28,3 +29,11 @@ class Stats extends Component {
 }
 
 export default Stats;
+
+Stats.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercent: PropTypes.number,
+};

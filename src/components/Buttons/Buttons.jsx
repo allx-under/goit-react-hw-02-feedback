@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 class Buttons extends Component {
   render() {
@@ -26,6 +27,8 @@ class Buttons extends Component {
   }
 }
 
+export default Buttons;
+
 export const Wrapper = styled.ul`
   display: flex;
 `;
@@ -34,4 +37,6 @@ const FeedbackBtnsItem = styled.li`
   margin-right: 10px;
 `;
 
-export default Buttons;
+Buttons.propTypes = {
+  onClick: PropTypes.func,
+};

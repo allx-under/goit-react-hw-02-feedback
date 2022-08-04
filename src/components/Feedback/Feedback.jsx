@@ -27,7 +27,7 @@ class Feedback extends Component {
 
   countPositiveFeedbackPercentage = () => {
     return this.countTotalFeedback() > 0
-      ? ((100 / this.countTotalFeedback()) * this.state.good).toFixed()
+      ? +((100 / this.countTotalFeedback()) * this.state.good).toFixed()
       : 0;
   };
 
