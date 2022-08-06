@@ -2,26 +2,24 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+const capitalize = s => {
+  if (typeof s !== 'string') return '';
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
 class Buttons extends Component {
   render() {
-    const { onClick } = this.props;
+    const { onClick, options } = this.props;
+
     return (
       <Wrapper>
-        <FeedbackBtnsItem>
-          <button onClick={onClick} value="good">
-            Good
-          </button>
-        </FeedbackBtnsItem>
-        <FeedbackBtnsItem>
-          <button onClick={onClick} value="neutral">
-            Neutral
-          </button>
-        </FeedbackBtnsItem>
-        <FeedbackBtnsItem>
-          <button onClick={onClick} value="bad">
-            Bad
-          </button>
-        </FeedbackBtnsItem>
+        {options.map(option => (
+          <FeedbackBtnsItem key={option}>
+            <button onClick={() => onClick(option)} value={option}>
+              {capitalize(option)}
+            </button>
+          </FeedbackBtnsItem>
+        ))}
       </Wrapper>
     );
   }

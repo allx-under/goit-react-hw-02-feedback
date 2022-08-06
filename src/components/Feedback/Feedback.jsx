@@ -11,8 +11,7 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  onClickAddToStat = e => {
-    const { value } = e.target;
+  onClickAddToStat = value => {
     this.setState(prevState => {
       return { [value]: prevState[value] + 1 };
     });
@@ -35,7 +34,10 @@ class Feedback extends Component {
     return (
       <Container>
         <h2>Please leave feedback</h2>
-        <Buttons onClick={this.onClickAddToStat} />
+        <Buttons
+          onClick={this.onClickAddToStat}
+          options={Object.keys(this.state)}
+        />
         <h2>Statistics</h2>
         <Stats
           good={this.state.good}
